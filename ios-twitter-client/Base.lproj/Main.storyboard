@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="86" id="bmJ-kB-kvJ">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="86" id="bmJ-kB-kvJ" customClass="TweetTableViewCell" customModule="ios_twitter_client" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bmJ-kB-kvJ" id="3GC-a9-kWR">
@@ -55,6 +55,13 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="timestampLabel" destination="0j1-0c-bTG" id="6rR-7p-pfV"/>
+                                            <outlet property="tweetImage" destination="NJh-WB-GSt" id="wP9-dl-9F9"/>
+                                            <outlet property="tweetTextLabel" destination="uqh-pH-Xr8" id="lsm-nt-bVu"/>
+                                            <outlet property="userIdLabel" destination="hdL-U4-3Ll" id="Uc0-bI-GcM"/>
+                                            <outlet property="userNameLabel" destination="pk9-If-0vq" id="3Xz-QI-BEa"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
