@@ -13,6 +13,9 @@
 		751950C819D3AD51007ED03C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 751950C719D3AD51007ED03C /* Images.xcassets */; };
 		751950CB19D3AD51007ED03C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 751950C919D3AD51007ED03C /* LaunchScreen.xib */; };
 		751950D719D3AD51007ED03C /* ios_twitter_clientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751950D619D3AD51007ED03C /* ios_twitter_clientTests.swift */; };
+		75B13C3719D4C37500C41661 /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B13C3619D4C37500C41661 /* TwitterClient.swift */; };
+		75B13C3919D4C99800C41661 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B13C3819D4C99800C41661 /* Tweet.swift */; };
+		75B13C3B19D4C9D400C41661 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B13C3A19D4C9D400C41661 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,9 @@
 		751950D019D3AD51007ED03C /* ios-twitter-clientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-twitter-clientTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		751950D519D3AD51007ED03C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		751950D619D3AD51007ED03C /* ios_twitter_clientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_twitter_clientTests.swift; sourceTree = "<group>"; };
+		75B13C3619D4C37500C41661 /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
+		75B13C3819D4C99800C41661 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		75B13C3A19D4C9D400C41661 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +83,10 @@
 		751950BD19D3AD51007ED03C /* ios-twitter-client */ = {
 			isa = PBXGroup;
 			children = (
+				75B13C3519D4C33600C41661 /* Networking */,
+				75B13C3419D4C33200C41661 /* Models */,
+				75B13C3319D4C32800C41661 /* View Controllers */,
 				751950C019D3AD51007ED03C /* AppDelegate.swift */,
-				751950C219D3AD51007ED03C /* ViewController.swift */,
 				751950C419D3AD51007ED03C /* Main.storyboard */,
 				751950C719D3AD51007ED03C /* Images.xcassets */,
 				751950C919D3AD51007ED03C /* LaunchScreen.xib */,
@@ -110,6 +118,31 @@
 				751950D519D3AD51007ED03C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		75B13C3319D4C32800C41661 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				751950C219D3AD51007ED03C /* ViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		75B13C3419D4C33200C41661 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				75B13C3819D4C99800C41661 /* Tweet.swift */,
+				75B13C3A19D4C9D400C41661 /* User.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		75B13C3519D4C33600C41661 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				75B13C3619D4C37500C41661 /* TwitterClient.swift */,
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,7 +246,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				751950C319D3AD51007ED03C /* ViewController.swift in Sources */,
+				75B13C3719D4C37500C41661 /* TwitterClient.swift in Sources */,
 				751950C119D3AD51007ED03C /* AppDelegate.swift in Sources */,
+				75B13C3B19D4C9D400C41661 /* User.swift in Sources */,
+				75B13C3919D4C99800C41661 /* Tweet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +441,7 @@
 				751950DC19D3AD51007ED03C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		751950DD19D3AD51007ED03C /* Build configuration list for PBXNativeTarget "ios-twitter-clientTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +450,7 @@
 				751950DF19D3AD51007ED03C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
