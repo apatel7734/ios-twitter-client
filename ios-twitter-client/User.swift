@@ -10,7 +10,7 @@ import Foundation
 
 class User {
     
-    var userName: String!
-    var userId: String!
+    var name: String!
+    var screenName: String!
    
 }

@@ -10,10 +10,15 @@ import Foundation
 
 class Tweet{
     
+    init(){
+        
+    }
+    
     var text: String!
     var retweetCount: Int!
     var retweeted: Bool!
-    var createdAt: NSDate!
+    var createdAt: String!
+    var profileImageUrl: String!
     var user: User!
     
 }
