@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ios-twitter-client/TwitterClient.swift"
-            timestampString = "433381843.252882"
+            timestampString = "433404451.30317"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "TwitterClient"
             landmarkType = "3">
          </BreakpointContent>

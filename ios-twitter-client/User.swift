@@ -10,7 +10,12 @@ import Foundation
 
 class User {
     
+    init(){
+        
+    }
+    
     var name: String!
     var screenName: String!
-   
+    var profileImageUrl: String!
+    
 }

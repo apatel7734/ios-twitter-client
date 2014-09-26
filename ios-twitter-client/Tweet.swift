@@ -18,7 +18,6 @@ class Tweet{
     var retweetCount: Int!
     var retweeted: Bool!
     var createdAt: String!
-    var profileImageUrl: String!
     var user: User!
     
 }

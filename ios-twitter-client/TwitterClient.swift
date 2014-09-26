@@ -31,12 +31,48 @@ class TwitterClient: BDBOAuth1RequestOperationManager{
         super.init(coder: aDecoder)
     }
     
-    
+    //async get hometimeline tweets from API
     func getHomeTimeLineTweets(success: (AFHTTPRequestOperation!, AnyObject!) -> Void, failure: (AFHTTPRequestOperation!, NSError!) -> Void) -> AFHTTPRequestOperation! {
         
         return self.GET(TWEETER_HOME_TIMELINE_URI, parameters: nil, success: success, failure: failure)
     }
     
+    
+    
+    func parseHomeTimeLine(jsonResponseObject: AnyObject!) -> [Tweet]{
+        
+        var data = NSJSONSerialization.dataWithJSONObject(jsonResponseObject, options: nil, error: nil) as NSData?
+        var arrayData = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: nil) as NSArray
+        
+        var tweets = [Tweet]()
+        println("size = \(arrayData.count)")
+        for tweet in arrayData{
+            var tweetModel = Tweet()
+            
+            tweetModel.text = tweet.valueForKey("text") as String
+            tweetModel.createdAt = tweet.valueForKey("created_at") as String
+            var retweeted = tweet.valueForKey("retweeted") as Int
+            if(retweeted == 0){
+                tweetModel.retweeted = false
+            }else {
+                tweetModel.retweeted = true
+            }
+            tweetModel.retweetCount = tweet.valueForKey("retweet_count") as Int
+
+            
+            //Add userinfo to tweetobject
+            var user = User()
+            var userJson = tweet.valueForKey("user") as NSDictionary
+            user.name = userJson["name"] as String?
+            user.screenName = userJson["screen_name"] as String?
+            user.profileImageUrl = userJson.valueForKey("profile_image_url") as String?
+            tweetModel.user = user
+            
+            //add tweet to array
+            tweets += [tweetModel]
+        }
+        return tweets
+    }
     
     
     
