@@ -55,13 +55,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let indexPathRow = tweetTableView.indexPathForSelectedRow()?.row
+        if (segue.identifier == "tweetDetailSegue"){
+            let selectedTweet = tweets[indexPathRow!]
+            let detailTweetVC = segue.destinationViewController as DetailTweetViewController
+            
+            detailTweetVC.tweet = selectedTweet
+        }
     }
     
     func loadHomeTimelineAndRefreshTable(){
-        
         TwitterClient.sharedInstance.getHomeTimeLineWithCompletion { (tweets, error) -> () in
-            println("tweets \(tweets)")
             if let tweets = tweets{
                 self.tweets = tweets
                 self.tweetTableView.reloadData()
