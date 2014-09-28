@@ -38,7 +38,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         cell.userNameLabel.text = tweet.user?.name?
         cell.userIdLabel.text = "@\(tweet.user?.screenName?)"
-        cell.textLabel?.text = tweet.text
+        cell.tweetTextLabel?.text = tweet.text
         if let userProfile = tweet.user?.profileImageUrl{
             cell.imageView?.setImageWithURL(NSURL(string: userProfile))
         }
@@ -65,20 +65,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.tweetTableView.reloadData()
             }
         }
-        /*
-        var tc = TwitterClient()
-        tc.getHomeTimeLineTweets({ (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-        self.tweets = tc.parseHomeTimeLine(response)
-        self.tweetTableView.reloadData()
-        
-        }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
-        println("error : \(error)")
-        
-        })
-        */
     }
-    
-    
 }
 
 
