@@ -40,7 +40,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.userIdLabel.text = "@\(tweet.user?.screenName?)"
         cell.tweetTextLabel?.text = tweet.text
         if let userProfile = tweet.user?.profileImageUrl{
-            cell.imageView?.setImageWithURL(NSURL(string: userProfile))
+            cell.tweetImage?.setImageWithURL(NSURL(string: userProfile))
         }
         return cell
         
