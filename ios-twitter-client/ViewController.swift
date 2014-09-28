@@ -63,11 +63,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         let indexPathRow = tweetTableView.indexPathForSelectedRow()?.row
+        
         if (segue.identifier == "tweetDetailSegue"){
+            println("tweetDetailSegue clicked")
             let selectedTweet = tweets[indexPathRow!]
             let detailTweetVC = segue.destinationViewController as DetailTweetViewController
-            
             detailTweetVC.tweet = selectedTweet
+        }else if(segue.identifier == "createTweetSegue"){
+            println("createTweetSegue clicked")
         }
     }
     

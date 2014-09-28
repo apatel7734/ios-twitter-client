@@ -1,5 +1,5 @@
 //
-//  DetailTweetViewController.swift
+//  CreateTweetViewController.swift
 //  ios-twitter-client
 //
 //  Created by Ashish Patel on 9/28/14.
@@ -8,16 +8,12 @@
 
 import UIKit
 
-class DetailTweetViewController: UIViewController {
-    
-    var tweet = Tweet()
+class CreateTweetViewController: UIViewController {
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var screenNameLabel: UILabel!
-    @IBOutlet weak var textLabel: UILabel!
-    @IBOutlet weak var timeStampLabel: UILabel!
-    
+    @IBOutlet weak var tweetTextField: UITextField!
     
     
     override func viewDidLoad() {
@@ -25,15 +21,8 @@ class DetailTweetViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
-        userNameLabel.text = tweet.user?.name
-        screenNameLabel.text = "@\(tweet.user?.screenName)"
-        textLabel.text = tweet.text
-        if let url = tweet.user?.profileImageUrl{
-            profileImageView.layer.cornerRadius = 8.0
-            profileImageView.clipsToBounds = true
-            profileImageView.setImageWithURL(NSURL(string: url))
-        }
-        
+        profileImageView.layer.cornerRadius = 8.0
+        profileImageView.clipsToBounds = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -41,9 +30,12 @@ class DetailTweetViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func tweetButtonClicked(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
-    @IBAction func replyButtonClicked(sender: AnyObject) {
-        println("reply clicked")
+    @IBAction func cancelButtonClicked(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     
