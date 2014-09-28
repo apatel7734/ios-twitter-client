@@ -14,6 +14,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var tweets = [Tweet]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -35,14 +36,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         var cell = tableView.dequeueReusableCellWithIdentifier("tweetcell") as TweetTableViewCell
         var tweet = tweets[indexPath.row]
         
-        cell.userNameLabel.text = tweet.user.name
-        cell.userIdLabel.text = "@\(tweet.user.screenName)"
+        cell.userNameLabel.text = tweet.user?.name?
+        cell.userIdLabel.text = "@\(tweet.user?.screenName?)"
         cell.textLabel?.text = tweet.text
-        if let imageUrl = tweet.user.profileImageUrl{
-            cell.imageView?.setImageWithURL(NSURL(string: tweet.user.profileImageUrl))
+        if let userProfile = tweet.user?.profileImageUrl{
+            cell.imageView?.setImageWithURL(NSURL(string: userProfile))
         }
-        
-        
         return cell
         
     }
@@ -58,15 +57,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func loadHomeTimelineAndRefreshTable(){
+        
+        TwitterClient.sharedInstance.getHomeTimeLineWithCompletion { (tweets, error) -> () in
+            println("tweets \(tweets)")
+            if let tweets = tweets{
+                self.tweets = tweets
+                self.tweetTableView.reloadData()
+            }
+        }
+        /*
         var tc = TwitterClient()
         tc.getHomeTimeLineTweets({ (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-            self.tweets = tc.parseHomeTimeLine(response)
-            self.tweetTableView.reloadData()
-            
-            }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
-                println("error : \(error)")
-                
+        self.tweets = tc.parseHomeTimeLine(response)
+        self.tweetTableView.reloadData()
+        
+        }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+        println("error : \(error)")
+        
         })
+        */
     }
     
     
