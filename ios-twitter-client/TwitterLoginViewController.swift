@@ -10,10 +10,15 @@ import UIKit
 
 class TwitterLoginViewController: UIViewController {
     
+    @IBOutlet weak var twitterLoginButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        twitterLoginButton.layer.cornerRadius = 5.0
+        twitterLoginButton.clipsToBounds = true
         
     }
     

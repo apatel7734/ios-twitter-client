@@ -39,6 +39,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.userNameLabel.text = tweet.user?.name?
         cell.userIdLabel.text = "@\(tweet.user?.screenName?)"
         cell.tweetTextLabel?.text = tweet.text
+        cell.tweetImage?.layer.cornerRadius = 8.0
+        cell.tweetImage?.clipsToBounds = true
         if let userProfile = tweet.user?.profileImageUrl{
             cell.tweetImage?.setImageWithURL(NSURL(string: userProfile))
         }
