@@ -23,6 +23,16 @@ class CreateTweetViewController: UIViewController {
         
         profileImageView.layer.cornerRadius = 8.0
         profileImageView.clipsToBounds = true
+        
+        userNameLabel.text = User.currentUser?.name
+        if let userName = User.currentUser?.screenName{
+            screenNameLabel.text = "@\(userName)"
+        }
+        
+        if let profileUrl = User.currentUser?.profileImageUrl{
+            profileImageView.setImageWithURL(NSURL(string: profileUrl))
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {

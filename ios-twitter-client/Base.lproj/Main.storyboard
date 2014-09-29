@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Home-->
+        <!--tweetsViewController-->
         <scene sceneID="ea4-1C-lCU">
             <objects>
-                <viewController id="OgL-6g-nF6" customClass="ViewController" customModule="ios_twitter_client" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="tweetsViewController" id="OgL-6g-nF6" customClass="ViewController" customModule="ios_twitter_client" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HGU-Sc-C0L"/>
                         <viewControllerLayoutGuide type="bottom" id="ld5-lO-f7n"/>
@@ -107,7 +107,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="REs-2m-oB8">
-                        <barButtonItem key="leftBarButtonItem" title="Sign out" id="OFS-5D-cyC"/>
+                        <barButtonItem key="leftBarButtonItem" title="Sign out" id="OFS-5D-cyC">
+                            <connections>
+                                <action selector="logoutButtonClicked:" destination="OgL-6g-nF6" id="76d-Dr-gLL"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="New" id="39g-BD-slO">
                             <connections>
                                 <segue destination="Xu0-pX-wX3" kind="presentation" identifier="createTweetSegue" id="RrL-rX-wPg"/>
@@ -318,8 +322,8 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6C-sI-SbK">
-                                <rect key="frame" x="76" y="72" width="76" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="76" y="72" width="73.5" height="19.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -330,8 +334,8 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="screen name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rqh-Kc-ah0">
-                                <rect key="frame" x="76" y="91" width="99" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="76" y="90" width="71.5" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -428,7 +432,7 @@
         <!--Navigation Controller-->
         <scene sceneID="VTC-jD-Dve">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Bn-iD-VSF" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="tweetsViewController" automaticallyAdjustsScrollViewInsets="NO" id="9Bn-iD-VSF" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3LN-7a-ati">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
