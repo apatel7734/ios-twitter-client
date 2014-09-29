@@ -58,6 +58,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.tweetTextLabel?.text = tweet.text
         cell.tweetImage?.layer.cornerRadius = 8.0
         cell.tweetImage?.clipsToBounds = true
+        cell.timestampLabel.text = tweet.timeAgoDate
+        
         if let userProfile = tweet.user?.profileImageUrl{
             cell.tweetImage?.setImageWithURL(NSURL(string: userProfile))
         }

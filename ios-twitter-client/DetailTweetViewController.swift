@@ -28,6 +28,7 @@ class DetailTweetViewController: UIViewController {
         userNameLabel.text = tweet.user?.name
         screenNameLabel.text = "@\(tweet.user?.screenName)"
         textLabel.text = tweet.text
+        timeStampLabel.text = tweet.timeAgoDate
         if let url = tweet.user?.profileImageUrl{
             profileImageView.layer.cornerRadius = 8.0
             profileImageView.clipsToBounds = true

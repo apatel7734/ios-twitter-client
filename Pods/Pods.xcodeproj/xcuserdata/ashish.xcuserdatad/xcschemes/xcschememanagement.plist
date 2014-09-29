@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-NSDateMinimalTimeAgo.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>267D0821EBED481587FD7892</key>
+		<key>766A12A60DB34C4888C3BE06</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4D8F25D55FE84DB38D46C884</key>
+		<key>928E7A6C05704046A0D6BC63</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DA826DCDE558433AA6CA66A2</key>
+		<key>B2D94C2205434C6FA6FDCC49</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FB37BB2378D840C9BD591CC5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
