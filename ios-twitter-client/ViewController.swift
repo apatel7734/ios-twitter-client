@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tweetTableView: UITableView!
     
     var tweets = [Tweet]()
+    var refreshControl: UIRefreshControl!
     
     
     override func viewDidLoad() {
@@ -22,6 +23,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tweetTableView.delegate = self
         tweetTableView.dataSource  = self
         
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to Refresh")
+        refreshControl.addTarget(self, action: "onRefresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tweetTableView.addSubview(refreshControl)
+    }
+    
+    func onRefresh(sender: AnyObject){
+        refreshControl.attributedTitle = NSAttributedString(string: "Refreshing...")
+        loadHomeTimelineAndRefreshTable()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         loadHomeTimelineAndRefreshTable()
     }
     
@@ -84,6 +97,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.tweets = tweets
                 self.tweetTableView.reloadData()
             }
+            
+            self.refreshControl.endRefreshing()
         }
     }
 }

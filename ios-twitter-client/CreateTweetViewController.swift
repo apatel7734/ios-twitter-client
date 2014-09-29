@@ -48,9 +48,11 @@ class CreateTweetViewController: UIViewController {
         println("Tweet text : \(tweetTextField.text)")
         
         TwitterClient.sharedInstance.tweetStatusWithCompletion({ (tweet, error) -> () in
-            println("tweet text : \(tweet?.text)")
-            println("tweet username : \(tweet?.user?.name)")
-            self.dismissViewControllerAnimated(true, completion: nil)
+            if (tweet != nil){
+                
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+            
             }, status: tweetTextField.text)
         
     }
