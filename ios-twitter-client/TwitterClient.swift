@@ -22,6 +22,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager{
     
     var loginCompletion: ((user: User?, error: NSError?) -> ())?
     var homeTimelineCompletion: ((tweets: [Tweet]?, error: NSError?) -> ())?
+    var tweetStatusCompletion: ((tweet: Tweet?, error: NSError?) -> ())?
     
     class var sharedInstance: TwitterClient {
         
@@ -45,7 +46,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager{
         //fetch request token & redirects to authorization webpage
         TwitterClient.sharedInstance.requestSerializer.removeAccessToken()
         
-        TwitterClient.sharedInstance.fetchRequestTokenWithPath("oauth/request_token", method: "POST", callbackURL: NSURL(string: "mytwitterclientdemo://oauth"), scope: nil, success: { (requestToken: BDBOAuthToken!) -> Void in
+        fetchRequestTokenWithPath("oauth/request_token", method: "POST", callbackURL: NSURL(string: "mytwitterclientdemo://oauth"), scope: nil, success: { (requestToken: BDBOAuthToken!) -> Void in
             
             println("request token")
             
@@ -56,6 +57,31 @@ class TwitterClient: BDBOAuth1RequestOperationManager{
                 self.loginCompletion?(user: nil, error: error)
         }
         
+    }
+    
+    /*
+    func tweetStatus(status: String, success: (AFHTTPRequestOperation!, AnyObject!) -> Void, failure: (AFHTTPRequestOperation!, NSError!) -> Void) -> AFHTTPRequestOperation!{
+    var parameters = ["status" : status]
+    return self.POST("1.1/statuses/update.json", parameters: parameters, success: success, failure: failure)
+    }
+    */
+    
+    func tweetStatusWithCompletion(completion: (tweet: Tweet?, error: NSError?) -> (), status: String){
+        tweetStatusCompletion = completion
+        
+        var parameters = ["status" : status]
+        //get user's timeline
+        TwitterClient.sharedInstance.POST("1.1/statuses/update.json", parameters: parameters, success: { (requestOperation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+            
+            var tweet = Tweet(dictionary: response as NSDictionary)
+            
+            self.tweetStatusCompletion?(tweet: tweet, error: nil)
+            
+            }, failure: { (requestOperation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                
+                println("Failed to post on your timeline \(error)")
+                self.tweetStatusCompletion?(tweet: nil, error: nil)
+        })   
     }
     
     

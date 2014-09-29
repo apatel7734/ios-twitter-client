@@ -35,13 +35,24 @@ class CreateTweetViewController: UIViewController {
         
     }
     
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func tweetButtonClicked(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        println("Tweet text : \(tweetTextField.text)")
+        
+        TwitterClient.sharedInstance.tweetStatusWithCompletion({ (tweet, error) -> () in
+            println("tweet text : \(tweet?.text)")
+            println("tweet username : \(tweet?.user?.name)")
+            self.dismissViewControllerAnimated(true, completion: nil)
+            }, status: tweetTextField.text)
+        
     }
     
     @IBAction func cancelButtonClicked(sender: AnyObject) {
