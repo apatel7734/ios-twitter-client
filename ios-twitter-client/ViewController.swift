@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DetailTweetViewControllerDelegate{
     
     @IBOutlet weak var tweetTableView: UITableView!
     
@@ -114,6 +114,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let selectedTweet = tweets[indexPathRow!]
             let detailTweetVC = segue.destinationViewController as DetailTweetViewController
             detailTweetVC.tweet = selectedTweet
+            detailTweetVC.delegate = self
         }else if(segue.identifier == "createTweetSegue"){
             println("createTweetSegue clicked")
         }
@@ -128,6 +129,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             self.refreshControl.endRefreshing()
         }
+    }
+    
+    
+    func updateTweet(tweet: Tweet) {
+        println("updated Tweet Fav = \(tweet.favorited)")
+        
     }
 }
 

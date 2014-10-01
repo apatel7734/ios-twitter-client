@@ -22,6 +22,7 @@ class Tweet{
     // 1h, 2h , 2d, 3d etc...
     var timeAgoDate: String?
     //
+    var favorited: Bool?
     var user: User?
     
     init(dictionary: NSDictionary){
@@ -33,8 +34,9 @@ class Tweet{
         if let dateString = createdAt{
             var date = formatter.dateFromString(dateString)
             timeAgoDate = date?.timeAgo()
-            println("")
         }
+        
+        favorited = dictionary["favorited"] as? Bool
         
         user = User(dictionary: dictionary["user"] as NSDictionary)
     }

@@ -253,12 +253,18 @@
                                 <state key="normal" image="retweeted_grey.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="retweetButtonClicked:" destination="5x5-bJ-FtD" eventType="touchUpInside" id="90z-6n-2P9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RbD-Cw-QXB">
                                 <rect key="frame" x="552" y="252" width="32" height="32"/>
                                 <state key="normal" image="favorite_yellow_on.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="favoriteButtonClicked:" destination="5x5-bJ-FtD" eventType="touchUpInside" id="ISe-Ya-61X"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rH-mN-JhB">
                                 <rect key="frame" x="12" y="167" width="570" height="19.5"/>
@@ -333,6 +339,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="favoriteButton" destination="RbD-Cw-QXB" id="ITx-0V-SDl"/>
                         <outlet property="profileImageView" destination="ImI-2P-IHM" id="7vr-7b-x7D"/>
                         <outlet property="screenNameLabel" destination="yrY-ni-xCm" id="15J-6V-erA"/>
                         <outlet property="textLabel" destination="0rH-mN-JhB" id="Qf4-MS-fQG"/>

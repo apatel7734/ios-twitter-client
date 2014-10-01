@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol DetailTweetViewControllerDelegate{
+    func updateTweet(tweet: Tweet)
+}
+
 class DetailTweetViewController: UIViewController {
     
     var tweet = Tweet()
@@ -18,6 +22,9 @@ class DetailTweetViewController: UIViewController {
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var timeStampLabel: UILabel!
     
+    @IBOutlet weak var favoriteButton: UIButton!
+    
+    var delegate: DetailTweetViewControllerDelegate!
     
     
     override func viewDidLoad() {
@@ -35,6 +42,9 @@ class DetailTweetViewController: UIViewController {
             profileImageView.setImageWithURL(NSURL(string: url))
         }
         
+        if let favorited = tweet.favorited{
+            updateButtonState(favoriteButton, favorited: favorited)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,8 +54,36 @@ class DetailTweetViewController: UIViewController {
     
     
     @IBAction func replyButtonClicked(sender: AnyObject) {
-        println("reply clicked")
+        println("replyButtonClicked")
     }
+    
+    
+    
+    @IBAction func favoriteButtonClicked(sender: UIButton) {
+        println("favoriteButtonClicked")
+        updateButtonState(sender, favorited: !sender.selected)
+    }
+    
+    func updateButtonState(sender: UIButton, favorited: Bool){
+        if(favorited){
+            sender.setImage(UIImage(named: "favorite_yellow_on.png"), forState: UIControlState.Normal)
+        }else{
+            sender.setImage(UIImage(named: "favorite_grey_off.png"), forState: UIControlState.Normal)
+        }
+        tweet.favorited = favorited
+        sender.selected = favorited
+        if let del = delegate{
+            delegate.updateTweet(tweet)
+        }
+        
+    }
+    
+    
+    
+    @IBAction func retweetButtonClicked(sender: UIButton) {
+        println("retweetButtonClicked")
+    }
+    
     
     
     
