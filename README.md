@@ -18,7 +18,6 @@ Completed user stories:
 
 Walkthrough of all user stories:
 
-![Video Walkthrough](https://raw.githubusercontent.com/apatel7734/ios-yelp/master/Yelp_iPhone5s.gif)
-![Video Walkthrough](https://raw.githubusercontent.com/apatel7734/ios-yelp/master/Yelp_iPhone6.gif)
+![Video Walkthrough](https://raw.githubusercontent.com/apatel7734/ios-twitter-client/master/twitter_client_iPhone6.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
