@@ -48,6 +48,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         User.currentUser?.logout()
     }
     
+    
+    
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         var cell = tableView.dequeueReusableCellWithIdentifier("tweetcell") as TweetTableViewCell
@@ -60,11 +63,34 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.tweetImage?.clipsToBounds = true
         cell.timestampLabel.text = tweet.timeAgoDate
         
+        cell.replyButton.tag = indexPath.row
+        cell.replyButton.addTarget(self, action: "replyButtonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        cell.favoriteButton.tag = indexPath.row
+        cell.favoriteButton.addTarget(self, action: "favoriteButtonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        cell.retweetButton.tag = indexPath.row
+        cell.retweetButton.addTarget(self, action: "retweetButtonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        
         if let userProfile = tweet.user?.profileImageUrl{
             cell.tweetImage?.setImageWithURL(NSURL(string: userProfile))
         }
         return cell
         
+    }
+    
+    
+    func replyButtonClicked(sender: UIButton?){
+        println("replyButtonClicked : \(sender?.tag)")
+    }
+    
+    func favoriteButtonClicked(sender: UIButton?){
+        println("favoriteButtonClicked : \(sender?.tag)")
+    }
+    
+    func retweetButtonClicked(sender: UIButton?){
+        println("retweetButtonClicked : \(sender?.tag)")
     }
     
     

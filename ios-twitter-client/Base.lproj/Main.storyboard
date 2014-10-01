@@ -125,6 +125,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="favoriteButton" destination="r34-X7-EaF" id="eV1-bg-UUS"/>
+                                            <outlet property="replyButton" destination="Hqe-99-N0M" id="S7Q-5x-tla"/>
+                                            <outlet property="retweetButton" destination="i4n-o8-Yzi" id="qwH-II-qeW"/>
                                             <outlet property="timestampLabel" destination="0j1-0c-bTG" id="6rR-7p-pfV"/>
                                             <outlet property="tweetImage" destination="NJh-WB-GSt" id="wP9-dl-9F9"/>
                                             <outlet property="tweetTextLabel" destination="uqh-pH-Xr8" id="lsm-nt-bVu"/>
