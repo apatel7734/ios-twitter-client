@@ -63,17 +63,51 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tweet text" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqh-pH-Xr8">
-                                                    <rect key="frame" x="70" y="27" width="521.5" height="14.5"/>
+                                                    <rect key="frame" x="70" y="27" width="521.5" height="26.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hqe-99-N0M">
+                                                    <rect key="frame" x="70" y="61" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="UcM-gK-W4y"/>
+                                                        <constraint firstAttribute="height" constant="20" id="liA-dW-veD"/>
+                                                    </constraints>
+                                                    <state key="normal" image="reply_grey.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4n-o8-Yzi">
+                                                    <rect key="frame" x="110" y="61" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="2sY-Tg-xju"/>
+                                                        <constraint firstAttribute="width" constant="20" id="Jeg-O9-eV9"/>
+                                                    </constraints>
+                                                    <state key="normal" image="retweeted_grey.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r34-X7-EaF">
+                                                    <rect key="frame" x="150" y="61" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="gki-JM-cI3"/>
+                                                        <constraint firstAttribute="width" constant="20" id="uNU-pB-cJ3"/>
+                                                    </constraints>
+                                                    <state key="normal" image="favorite_grey_off.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="NJh-WB-GSt" firstAttribute="top" secondItem="3GC-a9-kWR" secondAttribute="top" constant="5" id="2Fn-wj-BWT"/>
                                                 <constraint firstItem="pk9-If-0vq" firstAttribute="leading" secondItem="NJh-WB-GSt" secondAttribute="trailing" constant="5" id="6zy-tm-HkF"/>
+                                                <constraint firstItem="r34-X7-EaF" firstAttribute="leading" secondItem="i4n-o8-Yzi" secondAttribute="trailing" constant="20" id="7PC-ik-c3G"/>
+                                                <constraint firstItem="r34-X7-EaF" firstAttribute="top" secondItem="uqh-pH-Xr8" secondAttribute="bottom" constant="8" id="82H-Jt-P5v"/>
                                                 <constraint firstItem="NJh-WB-GSt" firstAttribute="leading" secondItem="3GC-a9-kWR" secondAttribute="leading" constant="5" id="8Su-ab-vz3"/>
+                                                <constraint firstItem="Hqe-99-N0M" firstAttribute="leading" secondItem="NJh-WB-GSt" secondAttribute="trailing" constant="5" id="8ol-8o-JTd"/>
                                                 <constraint firstItem="uqh-pH-Xr8" firstAttribute="top" secondItem="hdL-U4-3Ll" secondAttribute="bottom" constant="5" id="EI5-jN-NnE"/>
+                                                <constraint firstItem="Hqe-99-N0M" firstAttribute="top" secondItem="uqh-pH-Xr8" secondAttribute="bottom" constant="8" id="I61-BG-jdl"/>
                                                 <constraint firstItem="uqh-pH-Xr8" firstAttribute="leading" secondItem="NJh-WB-GSt" secondAttribute="trailing" constant="5" id="Ile-de-QM7"/>
                                                 <constraint firstItem="0j1-0c-bTG" firstAttribute="top" secondItem="3GC-a9-kWR" secondAttribute="top" constant="5" id="PrU-GU-Efd"/>
                                                 <constraint firstAttribute="trailing" secondItem="uqh-pH-Xr8" secondAttribute="trailing" constant="8" id="Sk3-iS-hce"/>
@@ -82,7 +116,12 @@
                                                 <constraint firstAttribute="trailing" secondItem="0j1-0c-bTG" secondAttribute="trailing" constant="5" id="djA-bR-3Na"/>
                                                 <constraint firstItem="hdL-U4-3Ll" firstAttribute="centerY" secondItem="pk9-If-0vq" secondAttribute="centerY" id="ej0-fC-R9f"/>
                                                 <constraint firstItem="0j1-0c-bTG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hdL-U4-3Ll" secondAttribute="trailing" constant="20" id="fGQ-mA-XmQ"/>
+                                                <constraint firstItem="i4n-o8-Yzi" firstAttribute="leading" secondItem="Hqe-99-N0M" secondAttribute="trailing" constant="20" id="fsa-mp-wWH"/>
+                                                <constraint firstAttribute="bottom" secondItem="i4n-o8-Yzi" secondAttribute="bottom" constant="10" id="iJi-pq-bkG"/>
                                                 <constraint firstItem="hdL-U4-3Ll" firstAttribute="top" secondItem="3GC-a9-kWR" secondAttribute="top" constant="5" id="mi2-1U-ZTs"/>
+                                                <constraint firstItem="i4n-o8-Yzi" firstAttribute="top" secondItem="uqh-pH-Xr8" secondAttribute="bottom" constant="8" id="oBg-Gu-Yov"/>
+                                                <constraint firstAttribute="bottom" secondItem="r34-X7-EaF" secondAttribute="bottom" constant="10" id="uLE-gE-fUA"/>
+                                                <constraint firstAttribute="bottom" secondItem="Hqe-99-N0M" secondAttribute="bottom" constant="10" id="uMW-rw-iRR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -472,6 +511,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="favorite_grey_off.png" width="32" height="32"/>
         <image name="favorite_yellow_on.png" width="32" height="32"/>
         <image name="reply_grey.png" width="32" height="32"/>
         <image name="retweeted_grey.png" width="32" height="19"/>
