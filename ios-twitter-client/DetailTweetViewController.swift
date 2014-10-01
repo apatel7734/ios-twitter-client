@@ -75,7 +75,6 @@ class DetailTweetViewController: UIViewController {
         if let del = delegate{
             delegate.updateTweet(tweet)
         }
-        
     }
     
     

@@ -69,8 +69,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.favoriteButton.tag = indexPath.row
         cell.favoriteButton.addTarget(self, action: "favoriteButtonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
         
+        if let fav = tweet.favorited{
+            updateButtonState(cell.favoriteButton, favorited: fav)
+        }
+        
+        
         cell.retweetButton.tag = indexPath.row
         cell.retweetButton.addTarget(self, action: "retweetButtonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+        
         
         
         if let userProfile = tweet.user?.profileImageUrl{
@@ -81,16 +87,33 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
+    func updateButtonState(sender: UIButton, favorited: Bool){
+        if(favorited){
+            sender.setImage(UIImage(named: "favorite_yellow_on.png"), forState: UIControlState.Normal)
+        }else{
+            sender.setImage(UIImage(named: "favorite_grey_off.png"), forState: UIControlState.Normal)
+        }
+        sender.selected = !sender.selected
+    }
+    
+    
     func replyButtonClicked(sender: UIButton?){
         println("replyButtonClicked : \(sender?.tag)")
     }
     
     func favoriteButtonClicked(sender: UIButton?){
         println("favoriteButtonClicked : \(sender?.tag)")
+        if let btnState = sender?.selected{
+            if let row = sender?.tag{
+                updateButtonState(sender!, favorited: !btnState)
+                tweets[row].favorited = !btnState
+            }
+        }
     }
     
     func retweetButtonClicked(sender: UIButton?){
         println("retweetButtonClicked : \(sender?.tag)")
+        
     }
     
     
